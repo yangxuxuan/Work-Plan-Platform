@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; script-src 'self'"
+    />
+    <title>待办</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="brand">
+          <span class="brand-dot"></span>
+          <span class="brand-text">待办</span>
+        </div>
+
+        <nav class="nav" id="nav"></nav>
+
+        <div class="cat-block">
+          <div class="cat-head">分类</div>
+          <div class="cat-list" id="catList"></div>
+        </div>
+
+        <div class="sidebar-foot">
+          <button class="ghost-btn" id="btnSettings">设置</button>
+        </div>
+      </aside>
+
+      <main class="main">
+        <header class="topbar">
+          <h1 id="viewTitle">按时间</h1>
+          <div class="search">
+            <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true">
+              <circle cx="7" cy="7" r="4.6" fill="none" stroke="currentColor" stroke-width="1.4" />
+              <path d="M10.6 10.6L14 14" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" />
+            </svg>
+            <input id="searchInput" type="search" placeholder="搜索标题、备注、子任务" spellcheck="false" autocomplete="off" />
+          </div>
+        </header>
+
+        <div class="statbar" id="statbar"></div>
+
+        <div class="tabs" id="statusTabs" hidden></div>
+
+        <div class="quickadd" id="quickadd">
+          <input id="qaTitle" class="qa-title" placeholder="输入标题，回车添加" spellcheck="false" autocomplete="off" />
+          <button id="qaDue" class="qa-field" type="button" data-empty="1">截止时间</button>
+          <button id="qaCats" class="qa-field" type="button">分类</button>
+          <button id="qaRemind" class="qa-field" type="button" data-empty="1">提醒</button>
+          <button id="qaAdd" class="qa-add" type="button" title="添加任务">+</button>
+        </div>
+
+        <div class="list-wrap">
+          <div class="list" id="list"></div>
+          <div class="empty" id="empty" hidden>
+            <div class="empty-mark">○</div>
+            <div class="empty-text" id="emptyText">暂无任务</div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div id="popoverRoot"></div>
+    <div id="modalRoot"></div>
+    <div id="toast" class="toast" hidden></div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
